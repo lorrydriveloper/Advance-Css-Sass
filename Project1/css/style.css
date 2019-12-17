@@ -45,6 +45,7 @@ height: 35px;
     left: 50%;
     top: 40%;
     transform: translate(-50%,-50%); /* centring things the easy way */
+    text-align: center;
 }
 .heading-box span{
     display: block;
@@ -64,6 +65,7 @@ height: 35px;
     letter-spacing: 17.4px;
     font-weight: 700;
     animation: rightFadeIn 1s ease-in-out;
+    margin-bottom: 40px;
 }
 
 @keyframes leftFadeIn{
@@ -94,4 +96,67 @@ height: 35px;
         opacity: 1;
 
     }
+}
+
+.btn:link,
+.btn:visited{
+    position: relative;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 15px 40px;
+    display: inline-block;
+    border-radius: 100px;
+    transition: all .2s;
+}
+.btn:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+.btn:active{
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+
+}
+
+.btn-white{
+    background-color: #fff;
+    color: #777;
+}
+
+.btn::after{
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    transition: all .4s;
+}
+
+.btn-white::after{
+    background-color: #fff;
+}
+
+.btn:hover::after{
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
+@keyframes topFadeIn{
+    0%{
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.btn-animated{
+    animation: topFadeIn 0.5s ease-in 0.75s;
+    animation-fill-mode: backwards;
 }
