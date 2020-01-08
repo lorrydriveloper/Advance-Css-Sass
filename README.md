@@ -1,2 +1,2 @@
 # Advance Css Sass
- projects created durin my process to learn Css and Sass
+ projects created during my process to learn Css and Sass
