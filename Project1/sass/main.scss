@@ -2,8 +2,10 @@
 $color-primary: #7ed56f;
 $color-primary-light:#55c57a ;
 $color-primary-dark:#28b485;
+
 $color-grey-dark: #777;
 $color-white: #fff;
+$color-black: #000;
 
 /* Basic Reset */
 
@@ -35,43 +37,51 @@ body {
     background-image:linear-gradient(to right bottom, rgba($color-primary-light, 0.8), rgba($color-primary-dark, 0.8)), url(../img/hero.jpg);
     background-size: cover;
     background-position: top; /* it re-size keeping top always same */
-    clip-path: polygon(0 0, 0% 100%, 100% 75vh, 100% 0)
+    clip-path: polygon(0 0, 0% 100%, 100% 75vh, 100% 0);
+
+    &__logo-box{
+        position: absolute;
+        top: 4rem;
+        left: 4rem;
+    }
+
+    &__logo{
+        height: 3.5rem;
+        }
+
+    &__heading-box{
+        position: absolute;
+        left: 50%;
+        top: 40%;
+        transform: translate(-50%,-50%); /* centring things the easy way */
+        text-align: center;
+    }
 }
-.header__logo-box{
-    position: absolute;
-    top: 4rem;
-    left: 4rem;
-}
-.header__logo{
-height: 3.5rem;
-}
-.header__heading-box{
-    position: absolute;
-    left: 50%;
-    top: 40%;
-    transform: translate(-50%,-50%); /* centring things the easy way */
-    text-align: center;
-}
+
+
+
 .heading-primary{
     color: $color-white;
     text-transform: uppercase;
     backface-visibility: hidden;
 
-}
-.heading-primary--main{
-    display: block;
-    letter-spacing: 3.5rem;
-    font-size: 6rem;
-    font-weight: 400;
-    animation: leftFadeIn 1s ease-in-out;
-}
-.heading-primary--sub{
-    display: block;
-    font-size: 2rem;
-    letter-spacing: 1.74rem;
-    font-weight: 700;
-    animation: rightFadeIn 1s ease-in-out;
-    margin-bottom: 4rem;
+    &--main{
+        display: block;
+        letter-spacing: 3.5rem;
+        font-size: 6rem;
+        font-weight: 400;
+        animation: leftFadeIn 1s ease-in-out;
+    }
+
+    &--sub{
+        display: block;
+        font-size: 1.9rem;
+        letter-spacing: 1.74rem;
+        font-weight: 700;
+        animation: rightFadeIn 1s ease-in-out;
+        margin-bottom: 4rem;
+    }
+    
 }
 
 @keyframes leftFadeIn{
@@ -104,51 +114,57 @@ height: 3.5rem;
     }
 }
 
-.btn:link,
-.btn:visited{
-    position: relative;
-    text-decoration: none;
-    text-transform: uppercase;
-    padding: 1.5rem 4rem;
-    display: inline-block;
-    border-radius: 10rem;
-    transition: all .2s;
-}
-.btn:hover{
-    transform: translateY(-0.5rem);
-    box-shadow: 0 1rem 2rem rgba(0,0,0,0.2);
-}
-.btn:active{
-    transform: translateY(-1px);
-    box-shadow: 0 .5rem 1rem rgba(0,0,0,0.2);
+.btn {
+    &:link,
+    &:visited{
+        position: relative;
+        text-decoration: none;
+        text-transform: uppercase;
+        padding: 1.5rem 4rem;
+        display: inline-block;
+        border-radius: 10rem;
+        transition: all .2s;
+    }
+    &:hover{
+        transform: translateY(-0.5rem);
+        box-shadow: 0 1rem 2rem rgba($color-black,0.2);
+        
+        &::after{
+            transform: scaleX(1.4) scaleY(1.6);
+            opacity: 0;
+        }
+    }
+    &:active{
+        transform: translateY(-1px);
+        box-shadow: 0 .5rem 1rem rgba($color-black,0.2);
 
-}
+    }
 
-.btn--white{
-    background-color: $color-white;
-    color:$color-grey-dark;
-}
+    &--white{
+        background-color: $color-white;
+        color:$color-grey-dark;
+        &::after{
+            background-color: $color-white;
+        }
+    }
 
-.btn::after{
-    content: "";
-    display: inline-block;
-    height: 100%;
-    width: 100%;
-    border-radius: 10rem;
-    position: absolute;
-    left: 0;
-    top: 0;
-    z-index: -1;
-    transition: all .4s;
-}
+    &::after{
+        content: "";
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+        border-radius: 10rem;
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: -1;
+        transition: all .4s;
+    }
 
-.btn--white::after{
-    background-color: $color-white;
-}
-
-.btn:hover::after{
-    transform: scaleX(1.4) scaleY(1.6);
-    opacity: 0;
+    &--animated{
+        animation: topFadeIn 0.5s ease-in 0.75s;
+        animation-fill-mode: backwards;
+    }
 }
 
 @keyframes topFadeIn{
@@ -160,9 +176,4 @@ height: 3.5rem;
         transform: translateX(0);
         opacity: 1;
     }
-}
-
-.btn--animated{
-    animation: topFadeIn 0.5s ease-in 0.75s;
-    animation-fill-mode: backwards;
 }

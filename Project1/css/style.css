@@ -26,42 +26,37 @@ body {
   background-position: top;
   /* it re-size keeping top always same */
   clip-path: polygon(0 0, 0% 100%, 100% 75vh, 100% 0); }
-
-.header__logo-box {
-  position: absolute;
-  top: 4rem;
-  left: 4rem; }
-
-.header__logo {
-  height: 3.5rem; }
-
-.header__heading-box {
-  position: absolute;
-  left: 50%;
-  top: 40%;
-  transform: translate(-50%, -50%);
-  /* centring things the easy way */
-  text-align: center; }
+  .header__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem; }
+  .header__logo {
+    height: 3.5rem; }
+  .header__heading-box {
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%, -50%);
+    /* centring things the easy way */
+    text-align: center; }
 
 .heading-primary {
   color: #fff;
   text-transform: uppercase;
   backface-visibility: hidden; }
-
-.heading-primary--main {
-  display: block;
-  letter-spacing: 3.5rem;
-  font-size: 6rem;
-  font-weight: 400;
-  animation: leftFadeIn 1s ease-in-out; }
-
-.heading-primary--sub {
-  display: block;
-  font-size: 2rem;
-  letter-spacing: 1.74rem;
-  font-weight: 700;
-  animation: rightFadeIn 1s ease-in-out;
-  margin-bottom: 4rem; }
+  .heading-primary--main {
+    display: block;
+    letter-spacing: 3.5rem;
+    font-size: 6rem;
+    font-weight: 400;
+    animation: leftFadeIn 1s ease-in-out; }
+  .heading-primary--sub {
+    display: block;
+    font-size: 1.9rem;
+    letter-spacing: 1.74rem;
+    font-weight: 700;
+    animation: rightFadeIn 1s ease-in-out;
+    margin-bottom: 4rem; }
 
 @keyframes leftFadeIn {
   0% {
@@ -83,8 +78,7 @@ body {
     transform: translateX(0);
     opacity: 1; } }
 
-.btn:link,
-.btn:visited {
+.btn:link, .btn:visited {
   position: relative;
   text-decoration: none;
   text-transform: uppercase;
@@ -96,6 +90,9 @@ body {
 .btn:hover {
   transform: translateY(-0.5rem);
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
+  .btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0; }
 
 .btn:active {
   transform: translateY(-1px);
@@ -104,6 +101,8 @@ body {
 .btn--white {
   background-color: #fff;
   color: #777; }
+  .btn--white::after {
+    background-color: #fff; }
 
 .btn::after {
   content: "";
@@ -117,12 +116,9 @@ body {
   z-index: -1;
   transition: all .4s; }
 
-.btn--white::after {
-  background-color: #fff; }
-
-.btn:hover::after {
-  transform: scaleX(1.4) scaleY(1.6);
-  opacity: 0; }
+.btn--animated {
+  animation: topFadeIn 0.5s ease-in 0.75s;
+  animation-fill-mode: backwards; }
 
 @keyframes topFadeIn {
   0% {
@@ -131,7 +127,3 @@ body {
   100% {
     transform: translateX(0);
     opacity: 1; } }
-
-.btn--animated {
-  animation: topFadeIn 0.5s ease-in 0.75s;
-  animation-fill-mode: backwards; }
