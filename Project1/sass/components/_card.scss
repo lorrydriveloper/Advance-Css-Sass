@@ -2,11 +2,11 @@
     perspective: 150rem;
     -moz-perspective: 150rem;
     position: relative;
-    height: 50rem;
+    height: 52rem;
     
 
     &__side {
-    height: 50rem;
+    height: 52rem;
     transition: all .8s ease;
     position: absolute;
     top: 0;
@@ -83,6 +83,27 @@
         &-3{
             background-image: linear-gradient(to right bottom, rgba($color-tertiary-light, .85), rgba($color-tertiary-dark, .85));
         }
+    }
+
+    &__details {
+        padding: 3rem;;
+
+        ul{
+            width: 80%;
+            margin: 0 auto;
+            list-style: none;
+
+            li{
+                
+                font-size: 1.5rem;
+                padding: 1rem;
+                &:not(:last-child){
+                    
+                    border-bottom: $color-grey-light-2 2px solid;
+                }
+            }
+        }
+
     }
 
 }
