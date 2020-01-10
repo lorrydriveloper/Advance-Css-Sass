@@ -33,6 +33,17 @@
         }
     }
 
+    &--green{
+            background-image: linear-gradient(to right bottom, rgba($color-primary-light, .85), rgba($color-primary-dark, .85));
+        color:$color-white;
+        &::after{
+            background-image: linear-gradient(to right bottom, rgba($color-primary-light, .85), rgba($color-primary-dark, .85));
+        }
+    }
+
+
+
+
     &::after{
         content: "";
         display: inline-block;
